@@ -21,7 +21,7 @@ cc.Class({
       let ring = cc.instantiate(this.ring);
       ring.parent = this.node;
       ring.setPosition(0, 0);
-      ring.getComponent('Ring').init(i, -Math.PI * 0.5 * i, Math.PI * 0.5);
+      ring.getComponent('Ring').init(i, Math.random() * Math.PI * 2, Math.PI * 0.25);
       this.rings.push(ring);
     }
   },

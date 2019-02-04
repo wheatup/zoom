@@ -17,11 +17,12 @@ cc.Class({
   },
 
   init(layer, exit, exitWidth){
+    let baseThickness = 14;
     this.layer = layer;
     this.exit = exit,
     this.exitWidth = exitWidth;
-    this.thickness = 40;
-    this.radius = 10 + (this.thickness + 2) * layer;
+    this.thickness = baseThickness * (layer + 1);
+    this.radius = (baseThickness + 1) * 0.5 * Math.pow(layer + 1, 2);
   },
 
   onLoad () {
@@ -29,7 +30,7 @@ cc.Class({
     console.log(this.ctx);
   },
 
-  update(dt) {
+  start(dt) {
     this.ctx.lineWidth = this.thickness;
     this.ctx.strokeColor = this.color;
     this.ctx.circle(0, 0, this.radius);
