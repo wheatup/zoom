@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Ring",
+    "_name": "BonusLabel",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -25,23 +25,26 @@
       },
       {
         "__id__": 3
+      },
+      {
+        "__id__": 4
       }
     ],
     "_prefab": {
-      "__id__": 4
+      "__id__": 5
     },
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
-      "g": 255,
-      "b": 255,
+      "g": 235,
+      "b": 0,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
-      "height": 0
+      "width": 45.61,
+      "height": 40
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -72,74 +75,70 @@
     "_zIndex": 0,
     "_is3DNode": false,
     "groupIndex": 0,
+    "_rotationX": 0,
+    "_rotationY": 0,
     "_id": ""
   },
   {
-    "__type__": "bc372DLY9VKQoFRt05Dn7Lz",
+    "__type__": "cc.Label",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "color": {
-      "__type__": "cc.Color",
-      "r": 17,
-      "g": 17,
-      "b": 17,
-      "a": 255
-    },
-    "exitColor": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "criticalColor": {
-      "__type__": "cc.Color",
-      "r": 29,
-      "g": 173,
-      "b": 23,
-      "a": 255
-    },
-    "pointerColor": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 178,
-      "b": 61,
-      "a": 255
-    },
-    "_id": ""
-  },
-  {
-    "__type__": "cc.Graphics",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "_srcBlendFactor": 770,
+    "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
-    "_lineWidth": 10,
-    "_strokeColor": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 0,
-      "b": 0,
-      "a": 255
+    "_useOriginalSize": false,
+    "_string": "+5",
+    "_N$string": "+5",
+    "_fontSize": 40,
+    "_lineHeight": 40,
+    "_enableWrapText": true,
+    "_N$file": null,
+    "_isSystemFontUsed": true,
+    "_spacingX": 0,
+    "_N$horizontalAlign": 1,
+    "_N$verticalAlign": 1,
+    "_N$fontFamily": "Arial",
+    "_N$overflow": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Widget",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
     },
-    "_lineJoin": 2,
-    "_lineCap": 0,
-    "_fillColor": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
+    "_enabled": true,
+    "alignMode": 1,
+    "_target": null,
+    "_alignFlags": 18,
+    "_left": 0,
+    "_right": 0,
+    "_top": 0,
+    "_bottom": 0,
+    "_verticalCenter": 0,
+    "_horizontalCenter": 0,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_isAbsHorizontalCenter": true,
+    "_isAbsVerticalCenter": true,
+    "_originalWidth": 0,
+    "_originalHeight": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "9d4f10nESdG4Ijfr0q4zuey",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
     },
-    "_miterLimit": 10,
+    "_enabled": true,
     "_id": ""
   },
   {
@@ -148,9 +147,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "150ed33e-b20c-4255-b7ff-70aed026878e"
+      "__uuid__": "679ba513-8357-4623-9d68-473bb2e21735"
     },
-    "fileId": "ddczZfLRBBfb1ii/M0nuyn",
+    "fileId": "0c/7sy8RhLxrIvufOf62kV",
     "sync": false
   }
 ]
