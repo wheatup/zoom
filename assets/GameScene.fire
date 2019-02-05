@@ -74,7 +74,7 @@
     "_level": 1,
     "_components": [
       {
-        "__id__": 35
+        "__id__": 31
       }
     ],
     "_prefab": null,
@@ -138,10 +138,10 @@
     "_level": 2,
     "_components": [
       {
-        "__id__": 33
+        "__id__": 29
       },
       {
-        "__id__": 34
+        "__id__": 30
       }
     ],
     "_prefab": null,
@@ -205,7 +205,7 @@
     "_level": 3,
     "_components": [
       {
-        "__id__": 32
+        "__id__": 28
       }
     ],
     "_prefab": null,
@@ -272,7 +272,7 @@
     "_level": 4,
     "_components": [
       {
-        "__id__": 31
+        "__id__": 27
       }
     ],
     "_prefab": null,
@@ -448,10 +448,10 @@
     "_level": 5,
     "_components": [
       {
-        "__id__": 29
+        "__id__": 25
       },
       {
-        "__id__": 30
+        "__id__": 26
       }
     ],
     "_prefab": null,
@@ -573,7 +573,7 @@
     },
     "_enabled": true,
     "_srcBlendFactor": 1,
-    "_dstBlendFactor": 771,
+    "_dstBlendFactor": 1,
     "_useOriginalSize": false,
     "_string": "Score: 0",
     "_N$string": "Score: 0",
@@ -1039,16 +1039,12 @@
     "_parent": {
       "__id__": 9
     },
-    "_children": [
-      {
-        "__id__": 24
-      }
-    ],
+    "_children": [],
     "_active": true,
     "_level": 6,
     "_components": [
       {
-        "__id__": 28
+        "__id__": 24
       }
     ],
     "_prefab": null,
@@ -1095,150 +1091,6 @@
     "_is3DNode": false,
     "groupIndex": 0,
     "_id": "5187BYtRVPr5tE3jaZRWos"
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "Ring",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 23
-    },
-    "_children": [],
-    "_active": false,
-    "_level": 7,
-    "_components": [
-      {
-        "__id__": 25
-      },
-      {
-        "__id__": 26
-      }
-    ],
-    "_prefab": {
-      "__id__": 27
-    },
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 0,
-      "height": 0
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_position": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_scale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_quat": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_zIndex": 0,
-    "_is3DNode": false,
-    "groupIndex": 0,
-    "_id": "a8ermSexNPb4inPjjFDbgY"
-  },
-  {
-    "__type__": "bc372DLY9VKQoFRt05Dn7Lz",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 24
-    },
-    "_enabled": true,
-    "color": {
-      "__type__": "cc.Color",
-      "r": 17,
-      "g": 17,
-      "b": 17,
-      "a": 255
-    },
-    "exitColor": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "criticalColor": {
-      "__type__": "cc.Color",
-      "r": 29,
-      "g": 173,
-      "b": 23,
-      "a": 255
-    },
-    "pointerColor": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 178,
-      "b": 61,
-      "a": 255
-    },
-    "_id": "3fxG7y+DxNDIMXDOks+kXI"
-  },
-  {
-    "__type__": "cc.Graphics",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 24
-    },
-    "_enabled": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_lineWidth": 10,
-    "_strokeColor": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 0,
-      "b": 0,
-      "a": 255
-    },
-    "_lineJoin": 2,
-    "_lineCap": 0,
-    "_fillColor": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_miterLimit": 10,
-    "_id": "faUJFau3BIBp4LWuX7/RP3"
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 24
-    },
-    "asset": {
-      "__uuid__": "150ed33e-b20c-4255-b7ff-70aed026878e"
-    },
-    "fileId": "ddczZfLRBBfb1ii/M0nuyn",
-    "sync": false
   },
   {
     "__type__": "cc.Widget",

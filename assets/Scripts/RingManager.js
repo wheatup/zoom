@@ -50,6 +50,7 @@ cc.Class({
 		this.totalRings = 0;
 		this.rings = [];
 		this.lastEscalate = 0;
+		this.alive = true;
 		for (let i = 0; i < 5; i++) {
 			this.generateARing(i);
 		}
@@ -58,12 +59,27 @@ cc.Class({
 	},
 
 	onTouch() {
+		if(!this.alive) return;
 		let currentRing = this.rings.find(ring => ring.getComponent('Ring').isCurrent);
 		currentRing.getComponent('Ring').touch();
 	},
 
 	gameOver() {
-		this.restart();
+		this.alive = false;
+		let shake = cc.sequence(
+			cc.moveTo(0.05, -10, 0),
+			cc.moveTo(0.05, 10, 0),
+			cc.moveTo(0.05, -10, 0),
+			cc.moveTo(0.05, 10, 0),
+			cc.moveTo(0.05, -10, 0),
+			cc.moveTo(0.05, 10, 0),
+			cc.moveTo(0.05, 0, 0),
+			cc.callFunc(this.restart, this)
+		);
+
+		this.node.stopAllActions();
+		this.node.runAction(shake);
+		// this.restart();
 	},
 
 	restart() {
@@ -126,7 +142,7 @@ cc.Class({
 		this.generateARing(-1);
 		for (let i = 0; i < this.rings.length; i++) {
 			let ring = this.rings[i];
-			if (ring.getComponent('Ring').layer >= 10) {
+			if (ring.getComponent('Ring').layer >= 16) {
 				ring.destroy();
 				continue;
 			}

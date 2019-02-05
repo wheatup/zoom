@@ -59,9 +59,11 @@ cc.Class({
 	},
 
 	update(dt) {
+		if (this.manager.alive) {
+			this.calcSpin(dt);
+			this.calcProperties();
+		}
 		this.calcEscalating(dt);
-		this.calcSpin(dt);
-		this.calcProperties();
 		this.renderCircle();
 	},
 
