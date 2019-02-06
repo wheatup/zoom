@@ -6,7 +6,7 @@ cc.Class({
 	onLoad() {
 		this.gravity = 1000;
 		this.speedX = Math.random() * 400 - 200;
-		this.speedY = Math.random() * 200 + 500;
+		this.speedY = Math.random() * 200 + 300;
 	},
 
 	start() {},

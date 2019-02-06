@@ -8,7 +8,8 @@ cc.Class({
 		bonusContainer: cc.Node,
 		bonusLabel: cc.Prefab,
 		scorePanel: cc.Node,
-		finalScoreLabel: cc.Label
+		finalScoreLabel: cc.Label,
+		levelUpLabel: cc.Label
 	},
 
 	onLoad() {
@@ -30,6 +31,13 @@ cc.Class({
 			cc.fadeOut(0.5)
 		);
 
+		this.levelUpAnimation = cc.sequence(
+			cc.spawn(cc.moveTo(0, -400, 0), cc.fadeOut(0)),
+			cc.spawn(cc.moveTo(0.25, 0, 0).easing(cc.easeCubicActionOut()), cc.fadeIn(0.25)),
+			cc.delayTime(0.75),
+			cc.spawn(cc.moveTo(0.25, 400, 0).easing(cc.easeCubicActionIn()), cc.fadeOut(0.25))
+		);
+
 		this.comboLabel.node.orgColor = this.comboLabel.node.color;
 		this.comboLabel.node.orgOutlineColor = this.comboLabel.node.getComponent(cc.LabelOutline).color;
 		this.onGameStart();
@@ -40,6 +48,7 @@ cc.Class({
 		whevent.on('SCORE', this.onScore, this);
 		whevent.on('COMBO', this.onCombo, this);
 		whevent.on('COMBO_BREAK', this.onComboBreak, this);
+		whevent.on('LEVELUP', this.onLevelUp, this);
 		whevent.on('SPEED', this.onSpeedStreak, this);
 		whevent.on('GAMEOVER', this.onGameOver, this);
 	},
@@ -47,6 +56,7 @@ cc.Class({
 	onGameStart() {
 		this.comboLabel.node.opacity = 0;
 		this.speedLabel.node.opacity = 0;
+		this.levelUpLabel.node.opacity = 0;
 		this.scorePanel.active = false;
 	},
 
@@ -68,10 +78,15 @@ cc.Class({
 		}
 	},
 
+	onLevelUp(level){
+		this.levelUpLabel.node.stopAllActions();
+		this.levelUpLabel.node.runAction(this.levelUpAnimation);
+	},
+
 	onComboBreak() {
 		this.comboLabel.node.color = new cc.Color(150, 150, 150, 255);
 		this.comboLabel.node.getComponent(cc.LabelOutline).color = new cc.Color(50, 50, 50, 255);
-		this.comboLabel.string = 'Miss';
+		this.comboLabel.string = 'Combo Broken';
 		this.comboLabel.node.stopAllActions();
 		this.comboLabel.node.runAction(this.comboAnimation);
 	},

@@ -6,25 +6,25 @@ cc.Class({
 	},
 
 	onLoad() {
-		this.levelUps = [2, 5, 10, 15, 20, 30, 40, 50, 100, 200];
+		this.levelUps = [5, 10, 25, 50, 75, 100, 200, 500, 1000];
 		this.difficulties = [
 			{ width: 2, speed: [1.5, 2] },
 			{ width: 1.5, speed: [1.75, 2.25] },
 			{ width: 1, speed: [2, 2.5] },
 			{ width: 0.75, speed: [2, 2.5] },
-			{ width: 0.6, speed: [2.25, 2.75] },
 			{ width: 0.5, speed: [2.25, 2.75] },
-			{ width: 0.45, speed: [2.5, 3] },
 			{ width: 0.4, speed: [2.5, 3] },
-			{ width: 0.36, speed: [3, 3.5] },
-			{ width: 0.33, speed: [3.25, 3.75] },
-			{ width: 0.3, speed: [3.5, 4] }
+			{ width: 0.35, speed: [3.25, 3.75] },
+			{ width: 0.3, speed: [3.5, 4] },
+			{ width: 0.25, speed: [4, 5.5] },
+			{ width: 0.2, speed: [4, 7] }
 		];
+		this.speedStreaks = [5, 10, 20, 30, 40, 50, 100];
 		this.moveTypes = [
 			['linear'],
 			['linear'],
 			['linear'],
-			['linear'],
+			['linear', 'swing'],
 			['linear', 'swing'],
 			['linear', 'swing'],
 			['linear', 'swing'],
@@ -131,7 +131,11 @@ cc.Class({
 
 		if (this.lastEscalate && this._time - this.lastEscalate <= 1) {
 			this.speedStreak++;
-			speedBonus = Math.pow(2, this.speedStreak);
+			if(this.speedStreak > this.speedStreaks.length - 1){
+				speedBonus = this.speedStreaks[this.speedStreaks.length - 1];
+			}else{
+				speedBonus = this.speedStreaks[this.speedStreak - 1];
+			}
 			whevent.emit('SPEED', { combo: this.speedStreak, bonus: speedBonus });
 		} else {
 			this.speedStreak = 0;
@@ -144,6 +148,7 @@ cc.Class({
 		whevent.emit('SCORE', this.score);
 		if (this.levelUps.indexOf(this.rawScore) >= 0) {
 			this.difficulty++;
+			whevent.emit('LEVELUP', this.difficulty);
 		}
 		this.generateARing(-1);
 		for (let i = 0; i < this.rings.length; i++) {
