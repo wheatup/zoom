@@ -51,17 +51,22 @@ cc.Class({
 		this.rings = [];
 		this.lastEscalate = 0;
 		this.alive = true;
+		this.readyToRestart = false;
 		for (let i = 0; i < 5; i++) {
 			this.generateARing(i);
 		}
 
 		this._time = 0;
+		whevent.emit('GAME_START');
 	},
 
 	onTouch() {
-		if(!this.alive) return;
-		let currentRing = this.rings.find(ring => ring.getComponent('Ring').isCurrent);
-		currentRing.getComponent('Ring').touch();
+		if (!this.alive && this.readyToRestart) {
+			this.restart();
+		} else if(this.alive) {
+			let currentRing = this.rings.find(ring => ring.getComponent('Ring').isCurrent);
+			currentRing.getComponent('Ring').touch();
+		}
 	},
 
 	gameOver() {
@@ -74,12 +79,14 @@ cc.Class({
 			cc.moveTo(0.05, -10, 0),
 			cc.moveTo(0.05, 10, 0),
 			cc.moveTo(0.05, 0, 0),
-			cc.callFunc(this.restart, this)
+			cc.callFunc(() => {
+				this.readyToRestart = true;
+				whevent.emit('GAMEOVER', this.score);
+			}, this)
 		);
 
 		this.node.stopAllActions();
 		this.node.runAction(shake);
-		// this.restart();
 	},
 
 	restart() {
@@ -104,7 +111,6 @@ cc.Class({
 			(Math.random() > 0.5 ? 1 : -1) * (difficulty.speed[0] + Math.random() * (difficulty.speed[1] - difficulty.speed[0])),
 			difficulty.width,
 			moveTypes[Math.floor(moveTypes.length * Math.random())]
-			// 'swing'
 		);
 		this.rings.push(ring);
 		this.totalRings++;
@@ -118,16 +124,16 @@ cc.Class({
 		if (firstAttempt) {
 			this.streak++;
 			comboBonus = Math.floor(this.streak / 5);
-			whevent.emit('COMBO', {combo: this.streak, bonus: comboBonus});
+			whevent.emit('COMBO', { combo: this.streak, bonus: comboBonus });
 		} else {
 			this.streak = 0;
 		}
 
-		if(this.lastEscalate && this._time - this.lastEscalate < 0.5){
+		if (this.lastEscalate && this._time - this.lastEscalate <= 1) {
 			this.speedStreak++;
 			speedBonus = Math.pow(2, this.speedStreak);
-			whevent.emit('SPEED', {combo: this.speedStreak, bonus: speedBonus});
-		}else{
+			whevent.emit('SPEED', { combo: this.speedStreak, bonus: speedBonus });
+		} else {
 			this.speedStreak = 0;
 		}
 
@@ -151,7 +157,7 @@ cc.Class({
 		this.rings = this.rings.filter(r => r.active);
 	},
 
-	update(dt){
+	update(dt) {
 		this._time += dt;
 	}
 });
